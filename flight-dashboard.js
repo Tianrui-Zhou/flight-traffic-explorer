@@ -428,7 +428,10 @@ function _selected_airport(direction,html,d3,top_airports,Event)
   const div = html`<div>
     <div style="font-size: 14px; color: #555; margin-bottom: 8px;">
       Hover to highlight. Click up to two airports to compare their full-day patterns.
-      <span id="selected-label" style="font-weight: 600; color: #333; margin-left: 8px;"></span>
+      <div
+        id="selected-label"
+        style="display: none; font-weight: 600; color: #333; margin-top: 4px;"
+      ></div>
     </div>
   </div>`;
 
@@ -477,8 +480,10 @@ function _selected_airport(direction,html,d3,top_airports,Event)
   }
 
   function updateBars() {
-    div.querySelector("#selected-label").textContent =
+    const selectedLabel = div.querySelector("#selected-label");
+    selectedLabel.textContent =
       div.value.length ? `Selected: ${div.value.join(" vs ")}` : "";
+    selectedLabel.style.display = div.value.length ? "block" : "none";
 
     bars
       .interrupt()
