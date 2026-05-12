@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>U.S. Thanksgiving Eve Flight Traffic Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body data-direction="departure">
+    <div class="page-shell">
+      <header class="hero panel">
+        <div class="hero-topbar">
+          <a class="page-link-button" href="writeup.html">View Full Write-up</a>
+        </div>
+        <div class="hero-intro">
+          <div class="hero-copy">
+            <p class="eyebrow">Thanksgiving Eve Flight Traffic</p>
+            <h1>U.S. Thanksgiving Eve Flight Traffic Explorer</h1>
+            <p class="hero-subtitle">
+              Explore how U.S. airport traffic changes across time, geography, and arrival versus departure flow on November 26, 2025, one of the busiest travel days of the year.
+            </p>
+            <div class="hero-question">
+              <span class="hero-question-label">Key Question</span>
+              <span class="hero-question-text">What patterns emerge in airport arrivals and departures across the United States on the day before Thanksgiving, and how do these patterns vary across airports and throughout the day?</span>
+            </div>
+          </div>
+
+          <section class="guide-card hero-guide">
+            <div class="section-kicker">How To Explore</div>
+            <ul class="guide-list">
+              <li>Switch between arrivals and departures to change the whole dashboard view.</li>
+              <li>Drag across the time chart to focus on a specific time window.</li>
+              <li>Drag the edges of the time window to adjust the range.</li>
+              <li>Click up to two airports in the Top 10 chart to compare daily patterns.</li>
+              <li>Hover over airports on the map to inspect traffic details.</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="hero-meta" aria-label="Current dashboard state">
+          <section class="control-card">
+            <div class="section-kicker">Flight Direction</div>
+            <div id="direction-toggle" class="control-host">
+              <div class="loading-state">Loading controls...</div>
+            </div>
+          </section>
+
+          <div class="status-pill">
+            <span class="status-label">Mode</span>
+            <span id="direction-status" class="status-value">Departure</span>
+          </div>
+          <div class="status-pill">
+            <span class="status-label">Time Window</span>
+            <span id="window-status" class="status-value">06:00 - 10:00</span>
+          </div>
+          <div class="status-pill">
+            <span class="status-label">Airport Compare</span>
+            <span id="comparison-status" class="status-value">Choose up to 2</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="panel panel--wide">
+          <div class="panel-head">
+            <div>
+              <div class="section-kicker">Time Focus</div>
+              <h2>Flight Volume by Time of Day</h2>
+            </div>
+            <p id="time-summary" class="panel-note">
+              When during the day does flight volume peak? Flights are grouped in 15-minute bins to show changes across the day.
+            </p>
+          </div>
+          <div id="time-chart" class="observable-host observable-host--wide">
+            <div class="loading-state">Loading time chart...</div>
+          </div>
+        </section>
+
+        <section class="detail-grid">
+          <article class="panel panel--narrow">
+            <div class="panel-head">
+              <div>
+              <div class="section-kicker">Airport Ranking</div>
+              <h2>Top 10 Airports in Selected Window</h2>
+            </div>
+            <p id="ranking-summary" class="panel-note">
+              Which airports handle the most traffic in your selected window? Rankings update to reflect the active direction and time selection.
+            </p>
+          </div>
+            <div id="top-airports-chart" class="observable-host">
+              <div class="loading-state">Loading airport ranking...</div>
+            </div>
+          </article>
+
+          <article class="panel panel--wide-detail">
+            <div class="panel-head">
+              <div>
+              <div class="section-kicker">Pattern Comparison</div>
+              <h2>Selected Airport Daily Patterns</h2>
+            </div>
+            <p id="comparison-summary" class="panel-note">
+              How do selected airports differ in their full-day traffic patterns? Select one or two airports from the Top 10 chart on the left to reveal them.
+            </p>
+          </div>
+            <div id="comparison-chart" class="observable-host">
+              <div class="loading-state">Loading comparison chart...</div>
+            </div>
+          </article>
+        </section>
+
+        <section class="panel panel--map">
+          <div class="panel-head">
+            <div>
+              <div class="section-kicker">National View</div>
+              <h2>U.S. Airport Traffic Map</h2>
+            </div>
+            <p id="map-summary" class="panel-note">
+              How is traffic distributed geographically across the U.S.? Circle size and color reflect the current traffic window. Hover airports for details.
+            </p>
+          </div>
+          <div id="map-chart" class="observable-host observable-host--map">
+            <div class="loading-state">Loading U.S. traffic map...</div>
+          </div>
+        </section>
+
+        <section class="panel panel--writeup">
+          <div class="panel-head">
+            <div>
+              <div class="section-kicker">Project Documentation</div>
+              <h2>Write-up</h2>
+            </div>
+          </div>
+          <div class="writeup-placeholder">
+            <p class="writeup-callout">
+              Our full project write-up explains the analysis question, design rationale, data sources, development process, and AI assistance disclosure.
+            </p>
+            <a class="writeup-button" href="writeup.html">View Full Write-up</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./script.js?v=20260511-3"></script>
+  </body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Write-up | U.S. Thanksgiving Eve Flight Traffic Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="page-shell page-shell--document">
+      <main class="dashboard">
+        <section class="hero panel document-hero">
+          <div class="hero-topbar">
+            <a class="page-link-button" href="index.html">Back to Visualization</a>
+          </div>
+          <div class="hero-copy">
+            <p class="eyebrow">Project Documentation</p>
+            <h1>Project Write-up</h1>
+            <p class="hero-subtitle">
+              This page holds the full written documentation for the Thanksgiving Eve flight traffic project, including the analysis question, design decisions, data sources, development process, and AI assistance disclosure.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel document-panel">
+          <div class="panel-head">
+            <div>
+              <div class="section-kicker">Write-up Content</div>
+              <h2>Project Documentation</h2>
+            </div>
+          </div>
+          <div class="writeup-content">
+            <h3>1. Project Overview</h3>
+            <p>
+              We chose to explore a large dataset on U.S. domestic air travel, focusing on November 26, 2025, the day before Thanksgiving, one of the busiest travel days of the year. This date was selected because it concentrates an unusually high volume of flights into a single day, making it ideal for revealing patterns in airport traffic that would otherwise be spread across multiple days.
+            </p>
+            <p>
+              Our goal was to design an interactive visualization system that allows users to explore how airport traffic changes across time and geography. Rather than trying to display every aspect of the dataset at once, we focused on creating a series of coordinated visualizations that support exploration of airport activity patterns throughout the day.
+            </p>
+
+            <h3>2. Analysis Question</h3>
+            <p>
+              What patterns emerge in airport arrivals and departures across the United States on the day before Thanksgiving, and how do these patterns vary across airports and throughout the day?
+            </p>
+
+            <h3>3. Visualization Design</h3>
+
+            <h4>3.1 Arrival / Departure Toggle</h4>
+            <p>
+              The visualization begins with an interactive toggle between departures and arrivals, which filters the data displayed throughout the rest of the interface. We chose separate color schemes for each mode to emphasize the distinction between arrival and departure traffic.
+            </p>
+            <p>
+              We chose to separate the data in this manner because displaying both arrivals and departures simultaneously created too much visual clutter and reduced the readability of the graphics. The toggle allows users to focus on one aspect of the data at a time while still making it easy to switch perspectives.
+            </p>
+            <p>
+              Initially, the toggle used a standard <code>Inputs.radio()</code> interface. However, the buttons did not feel visually obvious enough, so we redesigned the control using a custom HTML button layout to make the interaction clearer and more visually prominent.
+            </p>
+
+            <hr>
+
+            <h4>3.2 Time Brush Selection</h4>
+            <p>
+              A bar chart was chosen for the time overview because it provides a clear summary of flight volume across the full day, giving users a reference point before diving into the other graphics. We used 15-minute intervals rather than hourly aggregation to better capture fluctuations during peak travel periods while still maintaining readability. The brush selection allows the user to choose both the time of day and the size of the time window, which then filters all subsequent graphics.
+            </p>
+            <p>
+              An additional interactive element is the "Play" button, which animates the brush selection across the day, allowing users to observe how airport traffic shifts dynamically without manually dragging the window.
+            </p>
+            <p>
+              Initially, we used two separate range sliders for selecting the start and end times, represented by two red vertical lines on the chart. However, this interaction felt unintuitive because users could not directly drag the selected range within the chart itself, and the selected region was not visually separated clearly from the unselected data. We therefore switched to an interactive brush selection, which provided a more direct and intuitive filtering experience.
+            </p>
+
+            <hr>
+
+            <h4>3.3 Top 10 Airport Ranking</h4>
+            <p>
+              Once users select a time range, the visualization displays the top ten airports with the highest number of arrivals or departures during that period. This view helps users quickly identify major traffic hubs and supports further exploration through interaction.
+            </p>
+            <p>
+              The bar chart includes hover highlighting and airport selection interactions, allowing users to focus on specific airports and compare them across the remaining coordinated views.
+            </p>
+            <p>
+              We chose to display only the top 10 airports because showing all airports created substantial visual clutter and made comparisons difficult. The Top 10 chart provides a focused view of the busiest airports within the selected time window, allowing users to quickly identify major traffic hubs and select airports for further comparison. While the map provides geographic context, the ranking chart supports more precise comparison and interaction.
+            </p>
+            <p>
+              This chart was not part of the original prototype. We later added it because allowing users to select one or two airports created a stronger sense of interactive exploration and enabled clearer comparisons between specific airports of interest. This also made it possible to connect the airport selections to the linked comparison timeline and map highlighting interactions.
+            </p>
+
+            <hr>
+
+            <h4>3.4 Airport Comparison Timeline</h4>
+            <p>
+              After selecting airports from the Top 10 chart, users can compare flight activity patterns throughout the entire day using a linked line chart. This view allows users to explore how traffic changes over time for different airports.
+            </p>
+            <p>
+              We limited the comparison to two airports at a time because displaying too many overlapping lines made the chart visually difficult to interpret. Restricting the comparison to two airports allowed clearer temporal comparisons without overwhelming the user.
+            </p>
+            <p>
+              The chart updates dynamically based on the user’s airport selections.
+            </p>
+            <p>
+              We chose a line chart for this view because it clearly communicates changes and trends over time. We also tried to avoid repeating the same visualization style across the interface, and the line chart provided a visually distinct way to compare airport activity patterns throughout the day.
+            </p>
+
+            <hr>
+
+            <h4>3.5 Geographic Traffic Map</h4>
+            <p>
+              The final visualization displays airport traffic geographically across the United States using a proportional symbol map. Larger circles correspond to higher numbers of arrivals or departures at each airport.
+            </p>
+            <p>
+              The map was chosen so users can answer broader geographic questions, such as which regions of the country are most active and how traffic is distributed spatially.
+            </p>
+            <p>
+              We used both circle size and color intensity to encode traffic volume. Because comparing circle areas alone can be difficult for users, color intensity was added as a secondary visual cue to reinforce differences in traffic density. Darker colors correspond to airports with heavier traffic.
+            </p>
+            <p>
+              Tooltips were added to reveal airport names and exact flight counts when users hover over circles. Labels were only shown for major airports and selected airports in order to reduce visual clutter and improve readability.
+            </p>
+            <p>
+              When airports are selected in the Top 10 chart, they are highlighted in the map visualization to draw the user’s attention to their geographic locations.
+            </p>
+
+            <hr>
+
+            <h4>3.6 Coordinated Multi-View Interaction</h4>
+            <p>
+              One of the primary goals of the project was to create a coordinated exploration experience across multiple visualizations. Interactions in one chart dynamically update the others, allowing users to explore the dataset from multiple perspectives simultaneously.
+            </p>
+            <p>
+              The arrival/departure toggle, time brush selection, airport ranking chart, comparison timeline, and geographic map are all connected through synchronized filtering and highlighting interactions. Even the text related to selected airports and time windows updates dynamically rather than being hardcoded. For example, selecting airports from the Top 10 chart updates both the comparison timeline and the map highlighting. Similarly, adjusting the selected time window updates all downstream visualizations.
+            </p>
+            <p>
+              This coordinated interaction structure was designed to create a more cohesive exploration experience and help users connect temporal and geographic patterns more easily.
+            </p>
+
+            <h3>4. Data Sources &amp; References</h3>
+
+            <h4>Data Source</h4>
+            <p>
+              Bureau of Transportation Statistics (BTS) TranStats<br>
+              <a href="https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FGJ" target="_blank" rel="noreferrer">https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FGJ</a>
+            </p>
+
+            <h4>External Inspiration</h4>
+            <ul class="writeup-links">
+              <li><a href="https://observablehq.com/@observablehq/getting-started" target="_blank" rel="noreferrer">Observable Getting Started Guide</a></li>
+              <li><a href="https://observablehq.com/@williamshamma/interactive-map-and-bar" target="_blank" rel="noreferrer">Interactive Map Reference</a></li>
+              <li><a href="https://vega.github.io/vega/examples/crossfilter-flights/" target="_blank" rel="noreferrer">Crossfilter Flights Example</a></li>
+            </ul>
+
+            <h3>5. Development Process</h3>
+
+            <h4>5.1 Team Contributions</h4>
+            <p>
+              Chenrui selected the dataset, created the initial GitLab workspace, and began the project in Observable by processing and restructuring the original dataset and creating the initial visualization prototype, including the departure/arrival toggle, time filtering bar chart, and geographic map.
+            </p>
+            <p>
+              Amanda focused on improving the visual design and usability of the interface, including color encodings, legends, axis labels, tooltip design, and overall readability improvements. She also enhanced the overall visual appearance of the charts and completed the initial draft of the write-up.
+            </p>
+            <p>
+              Tianrui developed the Top 10 Airports ranking visualization, the linked airport comparison chart, and the coordinated interaction system connecting the charts and map. She also refined interaction flow, reduced visual clutter, improved tooltip information, polished the overall visual hierarchy and storytelling experience, and converted the final Observable code into an HTML webpage for deployment.
+            </p>
+
+            <hr>
+
+            <h4>5.2 Technical Challenges</h4>
+            <p>
+              One of the most difficult aspects of the project was reducing the size and complexity of the dataset into a form suitable for interactive exploration. The original dataset contained a large number of attributes and records, so we first had to determine which variables were most relevant to our analysis question.
+            </p>
+            <p>
+              Another challenge was reducing visual clutter while still preserving enough detail for meaningful exploration. We iterated on multiple interaction and layout decisions to balance readability, interactivity, and information density. For example, airport labels were only shown for busier airports or selected airports to avoid overlapping text and visual interference on the map.
+            </p>
+            <p>
+              Converting the Observable notebook into a polished webpage also took substantial time. This process included adjusting layout and chart sizing, organizing the interaction flow, and designing concise instructional text so users could quickly understand how to interact with the page.
+            </p>
+
+            <hr>
+
+            <h4>5.3 Time Spent</h4>
+            <p>
+              This visualization took approximately 30 people-hours to complete. The most time-consuming aspects were preprocessing the dataset, implementing coordinated interactions between views, refining the visual design to reduce clutter while maintaining readability, and converting the project into a polished interactive webpage.
+            </p>
+
+            <h3>6. AI Assistance Disclosure</h3>
+            <p>
+              AI-based tools including LLMs (ChatGPT, Gemini) and Codex were used selectively during development for debugging support, layout refinement, initial restructuring of the CSV file, deployment troubleshooting, and iterative front-end polishing. We also used LLMs to learn technical workflows such as converting Observable notebooks into webpages deployable through GitLab Pages.
+            </p>
+            <p>
+              All original project ideas, visualization design decisions, interaction logic, data filtering choices, and analytical framing were determined and reviewed by the project team.
+            </p>
+          </div>
+          <div class="document-footer">
+            <a class="page-link-button" href="index.html">Back to Visualization</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

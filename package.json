@@ -1,0 +1,13 @@
+{
+  "name": "flight-dashboard",
+  "main": "flight-dashboard.js",
+  "version": "1.0.0",
+  "author": {
+    "name": "CSE-512",
+    "url": "https://observablehq.com/@pei-hsin"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
