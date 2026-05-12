@@ -4,22 +4,28 @@ Interactive dashboard for exploring U.S. domestic flight traffic on November 26,
 
 ## Team
 
+- Tianrui Zhou
 - Chenrui Shao
 - Amanda Nilsen
-- Tianrui Zhou
 
-## Links
+## Live Demo
 
-- **Live site:** https://cse512.pages.cs.washington.edu/26sp/a3/flights-in-the-usa/
-- **Write-up:** https://cse512.pages.cs.washington.edu/26sp/a3/flights-in-the-usa/writeup.html
-- **Data source:** https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FGJ
+- Dashboard: https://tianrui-zhou.github.io/thanksgiving-flight-traffic-explorer/
+- Write-up: https://tianrui-zhou.github.io/thanksgiving-flight-traffic-explorer/writeup.html
 
-## Files
+## Data Source
 
-- `index.html`, `styles.css`, `script.js` — dashboard shell and runtime
+- U.S. Bureau of Transportation Statistics  
+  https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FGJ
+
+## Project Structure
+
+- `index.html` — main dashboard page
+- `styles.css` — styling and layout
+- `script.js` — application runtime and interactions
 - `flight-dashboard.js` — exported Observable notebook logic
-- `files/` — local CSV data files
-- `writeup.html` — project write-up
+- `files/` — local CSV datasets
+- `writeup.html` — project write-up and design process
 
 ## Run Locally
 
@@ -34,4 +40,4 @@ Then open `http://localhost:8000`.
 - D3.js
 - Observable Plot
 - HTML / CSS / JavaScript
-- GitLab Pages
+- GitHub Pages
