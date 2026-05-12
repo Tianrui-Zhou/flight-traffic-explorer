@@ -1,6 +1,6 @@
 # Thanksgiving Eve Flight Traffic Explorer
 
-Interactive dashboard for exploring U.S. domestic flight traffic on November 26, 2025, the day before Thanksgiving and one of the busiest travel days of the year.
+Interactive data visualization dashboard for exploring U.S. domestic flight traffic on November 26, 2025, the day before Thanksgiving and one of the busiest travel days of the year.
 
 ## Team
 
@@ -39,5 +39,6 @@ Then open `http://localhost:8000`.
 
 - D3.js
 - Observable Plot
-- HTML / CSS / JavaScript
+- HTML, CSS, JavaScript
 - GitHub Pages
+- Interactive Data Visualization
