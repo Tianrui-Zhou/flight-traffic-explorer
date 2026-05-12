@@ -10,8 +10,8 @@ Interactive dashboard for exploring U.S. domestic flight traffic on November 26,
 
 ## Live Demo
 
-- Dashboard: https://tianrui-zhou.github.io/thanksgiving-flight-traffic-explorer/
-- Write-up: https://tianrui-zhou.github.io/thanksgiving-flight-traffic-explorer/writeup.html
+- Dashboard: https://tianrui-zhou.github.io/flight-traffic-explorer/
+- Write-up: https://tianrui-zhou.github.io/flight-traffic-explorer/writeup.html
 
 ## Data Source
 
