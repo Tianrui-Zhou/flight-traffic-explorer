@@ -11,7 +11,7 @@ Interactive data visualization dashboard for exploring U.S. domestic flight traf
 ## Live Demo
 
 - Dashboard: https://tianrui-zhou.github.io/flight-traffic-explorer/
-- Write-up: https://tianrui-zhou.github.io/flight-traffic-explorer/writeup
+- Write-up: https://tianrui-zhou.github.io/flight-traffic-explorer/writeup.html
 
 ## Data Source
 
