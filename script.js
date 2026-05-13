@@ -86,7 +86,7 @@ function updateStatus() {
     `When during the day does flight volume peak? ${directionLabel} flights are grouped in 15-minute bins.`;
 
   elements.rankingSummary.textContent =
-    `Which airports handle the most traffic in your selected window? This ranking reflects ${directionLower} traffic within ${timeLabel}. Click bars to compare full-day airport patterns.`;
+    `Which airports handle the most traffic in the selected window? This ranking reflects ${directionLower} traffic within ${timeLabel}. Click bars to compare full-day airport patterns.`;
 
   if (selected.length === 0) {
     elements.comparisonSummary.textContent =
